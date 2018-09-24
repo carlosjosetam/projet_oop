@@ -1,0 +1,9 @@
+/tmp/cc4wvznB.o: In function `main':
+main.cpp:(.text+0x24): undefined reference to `CPU_Register::empty()'
+main.cpp:(.text+0x6c): undefined reference to `CPU_Register::store(double)'
+main.cpp:(.text+0x8b): undefined reference to `CPU_Register::store(double)'
+main.cpp:(.text+0x97): undefined reference to `CPU_Register::empty()'
+main.cpp:(.text+0xcc): undefined reference to `CPU_Register::read_register()'
+main.cpp:(.text+0x10e): undefined reference to `CPU_Register::read_register()'
+main.cpp:(.text+0x150): undefined reference to `CPU_Register::empty()'
+collect2: error: ld returned 1 exit status
