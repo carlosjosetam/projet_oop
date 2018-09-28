@@ -1,0 +1,5 @@
+TYPE: MEMORY
+LABEL: DRAM 2
+SIZE: 128
+ACCESS: 4
+SOURCE: Auxiliary bus

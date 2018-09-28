@@ -1,0 +1,5 @@
+TYPE: CPU
+LABEL: Coproc
+CORES: 2
+FREQUENCY: 2
+PROGRAM: testdata/program.txt

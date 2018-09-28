@@ -1,3 +1,23 @@
+#ifndef DATA_VALUE_HPP
+#define DATA_VALUE_HPP
+
+#include <iostream>
+
+using namespace std;
+
+class Data_Value {
+  double value = 0.0;
+	bool valid = false;
+
+public:
+  double getValue() { return this->value; };
+	void writeValue(double value) { this->value = value; valid = true; };
+	bool isValid() { return this->valid; };
+	void toggleValid() { this->valid = !valid; };
+};
+
+#endif
+
 #ifndef CPU_REGISTER_HHP
 #define CPU_REGISTER_HHP
 
@@ -21,13 +41,15 @@ public:
 	}
 };
 
+
 class CPU_Register {
-  std::list<double> FIFO;
+  list<Data_Value> FIFO;
 
 public:
   bool empty();
-  double read_register();
-  void store(double value);
+  Data_Value read();
+  void store(Data_Value value);
+	void print();
 };
 
 #endif
@@ -41,12 +63,12 @@ public:
 using namespace std;
 
 class Program_Instruction {
+public:
   op_code_t op_code;
 	double op1;
 	double op2;
 
-public:
-  double compute();
+  Data_Value compute();
   Program_Instruction(string instruction_line);
 };
 
@@ -59,18 +81,21 @@ public:
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
+
 
 using namespace std;
 
 class CPU_Program {
-  int instruction_pointer;
+  int instruction_pointer = 0;
 	vector<Program_Instruction> instructions;
 
 public:
-  Program_Instruction compute();
+  Program_Instruction compute_next();
   bool is_done();
   void reset();
 	CPU_Program(string path);
+	void showInstructions();
 };
 
 #endif
